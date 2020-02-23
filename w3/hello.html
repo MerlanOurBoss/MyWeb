@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title> Merloni</title>
+        <style>
+            *, html, body {
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .header {
+                background-color: grey;
+            }
+
+            .main {
+                width:50%;
+                margin: auto;
+            }
+
+            input[type="text"] {
+                padding: 8px 6px;
+                border: 1px solid grey;
+                border-radius: 3px;
+                margin: 5px;
+                width: 60%;
+            }
+
+            .delete {
+                color: red;
+                position: absolute;
+                right: 15px;
+                background: none;
+                font-size: 20px;
+                border: none;
+                border-radius: 5px;
+                transition: 0.5s;
+            }
+
+            .delete:hover {
+                background-color: #84A2BC;
+                color: white;
+            }
+
+            input[type="checkbox"] {
+                background-color: blue;
+            }
+
+            .item {
+                padding: 15px;
+                position: relative;
+                border-bottom: 1px solid grey;
+
+            }
+
+            label {
+                padding: 10px;
+                transition: 1s;
+            }
+
+            .add {
+                padding: 8px;
+                background-color: #3b5998;
+                border: 1px solid grey;
+                border-radius: 5px;
+                color: white;
+                margin-left: 25px;
+            }
+
+            #items {
+                border: 1px solid grey;
+                border-radius: 5px;
+                width: 80%;
+            }
+
+            .form {
+                width: 80%;
+                margin: 40px auto;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h3> ToDo List</h3>
+        </div>
+        <div class="main">
+            <h2 style="margin-top: 20px;"> ToDo List</h2>
+            <div class="form">
+                <input type="text" placeholder="New Task" id="in">
+                <button class="add" onclick="add()"> Add </button>
+            </div>
+            <div id="items">
+                <div class="item">
+                    <input onclick="check(this)" type="checkbox">
+                    <label>First Item</label>
+                    <button class="delete" onclick="remove(this)">-</button>
+                </div>
+            </div>
+        </div>
+    <script>
+        function add() {
+            let data = document.getElementById("in").value;
+            let checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox");
+            checkbox.addEventListener("click", function() { check(this)});
+            let label = document.createElement("label");
+            label.innerHTML = data;
+            let btn = document.createElement("button");
+            btn.addEventListener("click", function() { remove(this)});
+            btn.innerHTML = '-';
+            btn.setAttribute("class", "delete");
+            let block = document.createElement("div");
+            block.setAttribute("class", "item");
+            block.appendChild(checkbox);
+            block.appendChild(label);
+            block.appendChild(btn);
+            document.getElementById("items").appendChild(block);
+        }
+
+        function remove(element) {
+            document.getElementById("items").removeChild(element.parentNode);
+        }
+
+        function check(element) {
+            if (element.nextElementSibling.style.textDecoration == "line-through")
+                element.nextElementSibling.style.textDecoration = "none";
+            else  element.nextElementSibling.style.textDecoration = "line-through";
+        }
+    </script>
+    </body>
+</html>

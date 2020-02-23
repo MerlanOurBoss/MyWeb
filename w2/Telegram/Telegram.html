@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Telegram Web</title>
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://upload.wikimedia.org/wikipedia/commons/5/5c/Telegram_Messenger.png" >
+    <style>
+      body{
+        margin: 0;
+        background: #e7ebf0;
+      }
+      a{
+        color:white;
+        text-decoration: none;
+      }
+      #secPage{
+        background: #5681a2;
+        padding-bottom: 14em;
+      }
+      #loginPage {
+        position: absolute;
+        top: 100px;
+        bottom: 115px;
+        right: 35em;
+        left: 35em;
+      }
+      #loginPage_head{
+        padding: 10px 0px 22px;
+        font: 17px Tahome,  Arial;
+        color: white;
+      }
+      #loginPage_logo{
+        padding: 0px 0px 0px;
+        float: left;
+      }
+      #loginPage_write{
+        position: absolute;
+        margin: 10px 0px 0px;
+        font: 17px Tahome,  Arial;
+      }
+      #switch{
+        font: 15px cursive;
+        position: absolute;
+        right: 1em;
+        top: 20px;
+        bottom: 10px;
+        left: 20.2em;
+      }
+      #login_farm{
+        background: white;
+        top: 170px;
+        bottom: 210px;
+        left: 35em;
+        right: 35em;
+        position: absolute;
+        padding: 44px 65px;
+      }
+      #sing{
+        margin: 0px 0px 20px;
+        font: 17px Tahoma, Arial,sans-serif;
+      }
+      #pls{
+        color: #999999;
+        margin: 15px 0px 30px;
+        font: 13px Tahoma, Arial,sans-serif;
+      }
+      #count{
+        margin: 0px 0px 20px;
+
+      }
+      #count1{
+        font:10px Tahoma, Arial,sans-serif;
+        color: #999999;
+        margin: 0px 0px 10px;
+        padding-bottom: 20px;
+      }
+      #kaz{
+        font:13px Tahoma, Arial,sans-serif;
+        margin: 6px 0px 0px;
+        padding: 3px 0px 10px;
+        border-bottom: 1px #999999 solid;
+      }
+      #code{
+        font:10px Tahoma, Arial,sans-serif;
+        color: #999999;
+
+      }
+      #phone{
+        font:13px Tahoma, Arial,sans-serif;
+        border-bottom: 1px #90949c solid;
+        padding-bottom: 8px;
+      }
+      #phone input{
+        font-size: 12px;
+      }
+      #cd{
+        float: left;
+        margin: 0px 25px 22px 0px;
+        width: 50px;
+      }
+      #number{
+        height: 24px;
+        width: 10.4em;
+        padding-top: 18px;
+        margin-left: 5em;
+        border-bottom: 1px #90949c solid;
+      }
+      #about{
+        position: absolute;
+        top:33em;
+        right: 39em;
+        margin: 0px 0px 10px;
+      }
+      p{
+        color: #84A2BC;
+        font:13px Tahoma, Arial,sans-serif;
+      }
+      #lern{
+        font:13px Tahoma, Arial,sans-serif;
+        color:#84A2BC;
+        text-decoration: none;
+        margin-left: 7.3em;
+      }
+      input{
+         outline: 0;
+        border: 0;
+      }
+      #number input{
+        border-bottom: 3px #5681a2;
+      }
+      select{
+        border: none;
+        outline: 0;
+        border-bottom: 1px solid grey;
+      }
+    </style>
+</head>
+<body>
+<div id="frstPage">
+  <div id="secPage"> </div>
+  <div id="loginPage">
+    <div id="loginPage_head">
+      <div id="switch">
+        <a href="Telegram.html" > Next > </a>
+      </div>
+      <a id="login" >
+        <i id="loginPage_logo">
+          <a href="Telegram.html"><img src="https://www.freepnglogos.com/uploads/telegram-logo-15.png" alt="Telegram" width="60" height="42"> </a>
+        </i>
+        <i id="loginPage_write">
+          <a href="Telegram.html "> Telegram </a>
+        </i>
+      </a>
+    </div>
+  </div>
+  <div id="login_farm">
+    <form>
+      <h3 id="sing">
+        <strong> Sign in </strong>
+      </h3>
+      <p id="pls">
+        Please choose your country and enter your full phone number.
+      </p>
+      <div id="count">
+        <label id="count1"> Country</label>
+        <div id="kaz">
+              <select>
+                <option value="Kazakhstan"> Kazakhstan</option>
+                <option value="Russia"> Russia</option>
+                <option value="2"> China</option>
+                <option value="3"> Ukraine</option>
+                <option value="4"> France</option>
+                <option value="5"> Germany</option>
+                <option value="6"> Czech Republic</option>
+                <option value="7"> United Kingdom</option>
+                <option value="8"> Canada</option>
+                <option value="9"> United States</option>
+                <option value="10"> Cuba</option>
+              </select>
+        </div>
+      </div>
+      <div id="phn">
+        <div id="cd">
+          <label id="code"> Code</label>
+          <div id="phone">
+           <input type="text" value="+7 7">
+          </div>
+        </div>
+        <div id="number">
+          <input  type="text" name="" placeholder="Phone number">
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+  <div id="about">
+    <p>
+      Welcome to the official Telegram web-client.
+    </p>
+    <a id="lern" href="Telegram.html" >
+      Learn more
+    </a>
+  </div>
+</div>
+</body>
+</html>
