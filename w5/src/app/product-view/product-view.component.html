@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div>
+  <button (click)="back()">Back</button>
+  <a href="{{product.link}}" [title]="product.name">
+    <h2>{{product.name}}</h2>
+    <img src="{{product.img}}">
+  </a>
+  <p>Description: {{product.description}}</p>
+  <h3>Rating : {{product.rating}}</h3>
+  <button (click)="share(product)">Share</button>
+
+  <app-product-alerts
+    [product]="product"
+    (notify)="onNotify()">
+  </app-product-alerts>
+
+</div>

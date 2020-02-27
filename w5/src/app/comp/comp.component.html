@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<button id="back" (click)="back()">Back</button>
+<div *ngFor="let category of categories;">
+  <div *ngFor="let product of category.products; let i = index">
+    <a href="{{product.link}}" [title]="product.name"
+       routerLink="/categories/{{category.id-1}}/products/{{product.id}}">
+      <h2>{{i+1}}. {{product.name}}</h2>
+      <img src="{{product.img}}">
+    </a>
+    <p>Description: {{product.description}}</p>
+    <h3>Rating : {{product.rating}}</h3>
+
+    <app-product-alerts
+      [product]="product"
+      (notify)="onNotify()">
+    </app-product-alerts>
+
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<h3>Top Categories</h3>
+<div class="main">
+  <div class="item">
+    <a *ngFor="let category of categories"
+       routerLink="/categories/{{category.id-1}}/products">
+      <div class="module">
+        <h4>{{category.name}}</h4>
+      </div>
+    </a>
+  </div>
+  <div class="item">
+    <a routerLink="/categories/allproducts">
+      <div class="module">
+        <h4>All Products</h4>
+      </div>
+    </a>
+  </div>
+</div>
