@@ -1,0 +1,10 @@
+<div class="borders" *ngIf="products">
+  <div id="main" *ngFor="let product of products">
+    <h3 class="name">
+      {{product.name}}
+    </h3>
+    <img src="{{product.img}}">
+    <h4 class="name"> {{product.description}}
+    </h4>
+  </div>
+</div>

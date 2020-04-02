@@ -1,0 +1,12 @@
+<p>view-product works!</p>
+<div class="borders" *ngIf="products">
+  <div *ngFor="let product of products">
+    <div class="name">
+    {{product.name}}
+    </div>
+    <img src="{{product.img}}">
+    <div class="name" id="des">
+    {{product.description}}
+    </div>
+  </div>
+</div>
