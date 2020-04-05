@@ -1,0 +1,29 @@
+<div class="borders" *ngIf="products">
+  <div id="main" *ngFor="let product of products">
+    <div id="left">
+
+      {{product.name}}
+    </div>
+
+    <div id="mid">
+
+      <p>Description: {{product.description}}</p>
+      <img src="{{product.img}}">
+
+    </div>
+    <div id="right">
+      <p>Available: {{product.available}}</p>
+      <p>Price : {{product.price}}</p>
+      <p>Orders: {{product.orderCount}}</p>
+      <div id="button_div">
+        <BUTTON id="add_btn">Add</BUTTON>
+        <BUTTON id="buy_btn">Buy</BUTTON>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="borders" *ngIf="!products">
+  <h1>No Product</h1>
+</div>
