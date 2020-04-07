@@ -16,13 +16,19 @@
   flex-direction: column;
   justify-content: center;
 }
+#left{
+  display: flex;
+  flex-direction: column;
+}
 #mid p{
   font-size: 1em;
   margin-top: 0;
   margin-bottom: 32px;
+  color: white;
 }
 #right p{
   margin-top: 0;
+  font-size: 23px;
 }
 #right{
   margin: 0;
@@ -48,8 +54,15 @@
   max-height: 250%;
 }
 #mid img{
-  max-height: 95%;
-  max-width: 80%;
-  min-height: 70%;
+  max-height: 90%;
+  max-width: 105%;
+  min-height: 40%;
   min-width: 70%;
 }
+#left img{
+  max-height: 90%;
+  max-width: 105%;
+  min-height: 40%;
+  min-width: 70%;
+}
+

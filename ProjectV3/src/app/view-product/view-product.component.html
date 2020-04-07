@@ -2,18 +2,21 @@
   <div id="main" *ngFor="let product of products">
     <div id="left">
 
-      {{product.name}}
+      <img src="{{product.img}}">
+      <img src="{{product.img3}}">
     </div>
 
     <div id="mid">
+      <img src="{{product.img2}}">
 
-      <p>Description: {{product.description}}</p>
-      <img src="{{product.img}}">
-
+      <img src="{{product.img4}}">
     </div>
     <div id="right">
+      <h1> {{product.name}} </h1>
+      <p>{{product.price}}</p>
+      <p>Description: {{product.description}}</p>
       <p>Available: {{product.available}}</p>
-      <p>Price : {{product.price}}</p>
+
       <p>Orders: {{product.orderCount}}</p>
       <div id="button_div">
         <BUTTON id="add_btn">Add</BUTTON>

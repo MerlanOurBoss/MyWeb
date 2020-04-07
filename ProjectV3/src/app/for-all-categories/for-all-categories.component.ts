@@ -17,6 +17,6 @@ export class ForAllCategoriesComponent implements OnInit {
   }
   getProduct(): void {
      this.productsService.getProducts()
-       .subscribe(products => this.products = products);
+       .subscribe(products => this.products = products.slice(0, 12));
   }
 }
