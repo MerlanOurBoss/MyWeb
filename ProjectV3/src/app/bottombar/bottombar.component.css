@@ -1,0 +1,57 @@
+img {
+  width: 50%;
+  height: auto;
+  float: left;
+  align: left;
+}
+.screen{
+  width: 50%;
+  height: auto;
+  float: right;
+  align: right;
+}
+.pito{
+  width: 700px;
+  margin-left: auto;
+  height: 500px;
+}
+.pitos{
+  width: 700px;
+  margin-right: auto;
+  height: 500px;
+}
+body{
+  display: flex;
+}
+.module{
+  transform: translateX(-5px);
+  font-size: 5em;
+  line-height: .9em;
+  margin-left: 7%;
+  margin-top: 7%;
+  font-family: Arial;
+}
+.modules{
+  transform: translateX(-5px);
+  font-size: 5em;
+  margin-left: 2em;
+  margin-top: 6em;
+  font-family: Arial;
+}
+a{
+  text-decoration: none;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: solid 1px black;
+}
+.bottom{
+  margin-top: 50px;
+  margin-left: 60px;
+}
+.bottoms{
+  margin-top: 40px;
+  margin-left: 12em;
+}
+

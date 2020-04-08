@@ -1,3 +1,5 @@
+import {Comment} from './Comment';
+
 export interface Product {
   id: number;
   name: string;
@@ -9,6 +11,7 @@ export interface Product {
   description: string;
   rating: number;
   category: number;
+  comments: Comment[];
   orderCount: number;
   available: boolean;
   for: number;

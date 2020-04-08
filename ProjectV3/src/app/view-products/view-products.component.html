@@ -1,11 +1,20 @@
-<div class="grid-pad">
-  <a *ngFor="let product of products" class="col-1-4" routerLink="/products/{{product.id}}">
-    <div class="module hero">
-      <h4>{{product.name}}</h4>
+<div class="grid-pad" *ngIf="products">
 
-      <img id="prod_img" src="{{product.img}}" alt="ProdImage">
-      <h4> {{product.description}} </h4>
+  <div class="col-1-4" *ngFor="let product of products">
+
+    <div class="module hero">
+      <a routerLink="/products/{{product.id}}">
+        <h3> {{product.name}} </h3>
+        <img id="prod_img" src="{{product.img}}">
+
+        <h4> Price : {{product.price}} </h4>
+        <h4> Orders: {{product.orderCount}} </h4>
+      </a>
+
     </div>
-  </a>
+
+  </div>
+
 </div>
+
 

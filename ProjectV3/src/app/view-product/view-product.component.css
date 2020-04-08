@@ -3,14 +3,17 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  min-height: 500px;
-  max-height: 500px;
+  min-height: 100%;
+  max-height: 100%;
+  font-family: Arial;
 }
 #main div{
   margin: 5px;
   width: 30%;
+  padding: 1%;
 }
 #mid{
+  font-size: 1em;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,7 +23,7 @@
   display: flex;
   flex-direction: column;
 }
-#mid p{
+#mid p {
   font-size: 1em;
   margin-top: 0;
   margin-bottom: 32px;
@@ -33,8 +36,8 @@
 #right{
   margin: 0;
   padding: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -65,4 +68,88 @@
   min-height: 40%;
   min-width: 70%;
 }
-
+.comments{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.col-1-4 {
+  width: 20%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+}
+.comment {
+  padding: 5px;
+  text-align: center;
+  color: #eee;
+  height: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.comments {
+  padding: 10px 0;
+}
+.addComment {
+  justify-content: center;
+  width: 50%;
+  height: 150%;
+  border: 1px solid #CCC;
+  background: url(http://68.media.tumblr.com/2b27908fac782ca54cc2b3aff6862423/tumblr_mra3owkIhC1ro855no1_500.gif) center center no-repeat;
+  background-size: cover;
+  margin: 30px auto;
+  border-radius: 3px;
+}
+.addComment .form {
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+  justify-content: center;
+}
+.form h1{
+  color: #eeeeee;
+}
+.addComment .form input[type="text"] {
+  width: 90%;
+  height: 40px;
+  margin-top: 20px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 2px;
+  font-size: 14px;
+  color: black;
+}
+.addComment .form textarea {
+  margin-top: 20px;
+  width: 90%;
+  height: 100px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 2px;
+  font-size: 14px;
+  color: black;
+  resize: none;
+}
+.addComment .form input:focus {
+  border: 1px solid rgba(255,255,255,.8);
+  outline: none;
+}
+.addComment .form input.submit {
+  background: rgba(255,255,255,0.9);
+  font-size: 2em;
+  font-weight: bold;
+  width: 95%;
+  height: 100px;
+  margin-top: 20px;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  border-radius: 2px;
+  color: black;
+}

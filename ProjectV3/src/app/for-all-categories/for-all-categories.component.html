@@ -1,5 +1,6 @@
-<p>Top 20 all time products</p>
-
+<div id="title">
+  <h2>Top 20 all time products</h2>
+</div>
 <div class="grid-pad">
   <a *ngFor="let product of products" class="col-1-4" routerLink="/products/{{product.id}}">
     <div class="module hero">
@@ -13,3 +14,5 @@
     </div>
   </a>
 </div>
+<app-bottombar></app-bottombar>
+<app-downbar></app-downbar>

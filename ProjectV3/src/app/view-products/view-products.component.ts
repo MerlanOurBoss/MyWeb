@@ -21,11 +21,14 @@ export class ViewProductsComponent implements OnInit {
   getCategoryProducts() {
     const prevCat = +this.route.snapshot.paramMap.get('prevCat'); // 1 = man, 2 = woman
     const catId = +this.route.snapshot.paramMap.get('catId'); // man or woman's category id
+    console.log('Init' + catId);
     this.productService.getProducts()
       .subscribe(products =>
         this.products = products.
-        filter(product => product.for === prevCat).
+        // filter(product => product.for === prevCat).
         filter(product => product.category === catId));
+    console.log(this.products.filter(product => product.for === prevCat).
+    filter(product => product.category === catId) + 'items');
   }
 
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Category} from './Category';
 import {ProductService} from './product.service';
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,8 +10,11 @@ import {ProductService} from './product.service';
 export class AppComponent {
   title = 'App';
   categories = [];
-  prevCatId = -1;
-  constructor(private productsService: ProductService ) { }
+  private prevCatId = -1;
+  constructor(
+    private productsService: ProductService,
+    private route: ActivatedRoute,
+    ) { }
   mouseEnter(id) {
     this.mouseLeave();
     if (id === 1) {
@@ -30,4 +34,5 @@ export class AppComponent {
     document.querySelector('div').style.cssText = 'background-color: none;';
     document.getElementById('nav_list').style.cssText = 'background-color: none';
   }
+  // this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {ProductService} from "../product.service";
-import {Product} from "../Product";
+import {ProductService} from '../product.service';
+import {Product} from '../Product';
 
 @Component({
   selector: 'app-for-all-categories',
@@ -13,9 +13,9 @@ export class ForAllCategoriesComponent implements OnInit {
   constructor(private productsService: ProductService ) { }
 
   ngOnInit(): void {
-    this.getProduct();
+    this.getProducts();
   }
-  getProduct(): void {
+  getProducts(): void {
      this.productsService.getProducts()
        .subscribe(products => this.products = products.slice(0, 12));
   }
