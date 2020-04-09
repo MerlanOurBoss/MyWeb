@@ -17,6 +17,8 @@ import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation
 import { AdviceMenuComponent } from './advice-menu/advice-menu.component';
 import { LoggedStatusComponent } from './logged-status/logged-status.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule(
   {
@@ -40,7 +42,9 @@ import { ProfileComponent } from './profile/profile.component';
       BottomNavigationComponent,
       AdviceMenuComponent,
       LoggedStatusComponent,
-      ProfileComponent
+      ProfileComponent,
+      AdminComponent,
+      ProductEditComponent
     ],
   providers: [],
   bootstrap: [AppComponent]

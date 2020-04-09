@@ -306,7 +306,7 @@ export class InMemoryDataService implements InMemoryDbService {
         price: 'KZT13,990.00',
         description: 'Black hoodie with a all-over graffiti print, long sleeves and a hood. Made of cotton.',
         img: 'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5596/544/800/04/5596544800_2_5_8.jpg?t=1584985558667&imwidth=900',
-        img2: 'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5596/544/800/04/5596544800_2_1_8.jpg?t=1584985562773&imwidth=900',
+        img2: 'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5596/544/800/04/5596544800_2_1_8.jpg?t=1584985558667&imwidth=900',
         img3: 'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5596/544/800/04/5596544800_2_2_8.jpg?t=1584985566811&imwidth=900',
         img4: 'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5596/544/800/04/5596544800_2_3_8.jpg?t=1584985570999&imwidth=900',
         rating: 4.3,

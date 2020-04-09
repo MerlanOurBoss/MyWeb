@@ -51,4 +51,15 @@ export class ProductService {
       return of(result as T);
     };
   }
+  searchProducts(term: string): Observable<Product[]> {
+    if (!term.trim()) {
+      // if not search term, return empty product array.
+      return of([]);
+    }
+    return this.http.get<Product[]>(`${this.productsUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        console.log(`found product matching "${term}"`) :
+        console.log(`no product matching "${term}"`)),
+    );
+  }
 }

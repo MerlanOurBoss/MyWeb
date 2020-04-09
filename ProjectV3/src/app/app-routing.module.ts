@@ -8,7 +8,9 @@ import {ForWomanCategoriesComponent} from './for-woman-categories/for-woman-cate
 import {ViewProductsComponent} from './view-products/view-products.component';
 import {ViewProductComponent} from './view-product/view-product.component';
 import {SignComponent} from './sign/sign.component';
-import {ProfileComponent} from "./profile/profile.component";
+import {ProfileComponent} from './profile/profile.component';
+import {AdminComponent} from './admin/admin.component';
+import {ProductEditComponent} from './product-edit/product-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'forall', pathMatch: 'full' },
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'forwoman', component: ForWomanCategoriesComponent },
   { path: 'category/:catId/products' , component: ViewProductsComponent},
   { path: 'sign/:action', component: SignComponent},
-  { path: 'profile', component: ProfileComponent}
+  { path: 'profile', component: ProfileComponent},
+  { path: 'admin', component: AdminComponent},
+  {path: 'productEdit/:id', component: ProductEditComponent}
 ];
 
 @NgModule({

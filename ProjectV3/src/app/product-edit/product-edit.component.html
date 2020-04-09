@@ -1,0 +1,28 @@
+<p>product-edit works!</p>
+<div *ngIf="product">
+  {{product.name}}
+  <h1> If you wanna change name</h1>
+  <label>
+    <input [(ngModel)]="product.name" placeholder="name"/>
+  </label>
+
+  <div>
+  {{product.description}}
+  <h1> If you wanna change description</h1>
+  <label>
+    <input size='100'[(ngModel)]="product.description" placeholder="description"/>
+  </label>
+</div>
+  <div>
+    {{product.price}}
+    <h1> If you wanna change price</h1>
+    <label>
+      <input [(ngModel)]="product.price" placeholder="description"/>
+    </label>
+  </div>
+</div>
+
+<div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
