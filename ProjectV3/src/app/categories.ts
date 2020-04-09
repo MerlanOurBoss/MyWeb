@@ -1,6 +1,5 @@
 import { Category} from './Category';
-
-export const categories: Category[]  = [
+// export const categories: Category[]  = [
   // {
   //   id: 1,
   //   name: 'Man Cat 1',
@@ -31,4 +30,4 @@ export const categories: Category[]  = [
   //   name: 'WoMan Cat 1',
   //   for: 2
   // },
-]
+// ]

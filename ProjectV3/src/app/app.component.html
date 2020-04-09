@@ -1,13 +1,13 @@
-<a routerLink="/forall"><h1 id="titlePull"> Pull && Bear</h1></a>
+<a routerLink="/forall"><h1 id="titlePull" (mouseenter)="mouseLeave()"> Pull && Bear</h1></a>
 <nav>
   <ul id="nav_list" >
-    <li><a routerLink="/forall" (mouseenter)="mouseLeave()">For All</a>|</li>
-    <li><a routerLink="/forman" (mouseenter)="mouseEnter(1)" >Man</a>|</li>
-    <li><a routerLink="/forwoman" (mouseenter)="mouseEnter(2)" >Woman</a></li>
+    <li><a routerLink="/forall" (mouseenter)="mouseLeave()" routerLinkActive="active">For All</a>|</li>
+    <li><a routerLink="/forman" (mouseenter)="mouseEnter(1)"  routerLinkActive="active">Man</a>|</li>
+    <li><a routerLink="/forwoman" (mouseenter)="mouseEnter(2)"  routerLinkActive="active">Woman</a></li>
   </ul>
-  <ul id="nav_list_sign">
-    <li><a routerLink="/sign/in" >Sign in</a></li>
-    <li><a routerLink="/sign/up">Sign up</a>|</li>
+  <ul id="nav_list_sign" (mouseenter)="mouseLeave()">
+    <li><a routerLink="/sign/in" routerLinkActive="active">Sign in</a></li>
+    <li><a routerLink="/sign/up" routerLinkActive="active">Sign up</a>|</li>
   </ul>
 </nav>
 
@@ -21,4 +21,4 @@
 
 <router-outlet></router-outlet>
 
-
+<app-bottom-navigation></app-bottom-navigation>

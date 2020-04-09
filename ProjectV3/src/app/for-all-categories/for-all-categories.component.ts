@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ProductService} from '../product.service';
 import {Product} from '../Product';
+import {User} from "../User";
+import {UserServiceService} from "../user-service.service";
 
 @Component({
   selector: 'app-for-all-categories',
@@ -9,11 +11,15 @@ import {Product} from '../Product';
 })
 export class ForAllCategoriesComponent implements OnInit {
   products: Product[] = [];
-
-  constructor(private productsService: ProductService ) { }
+  activeUser: User;
+  constructor(
+    private productsService: ProductService,
+    private userServiceService: UserServiceService,
+    ) { }
 
   ngOnInit(): void {
     this.getProducts();
+    this.userServiceService.getLoggedStatus().subscribe(user => this.activeUser = user);
   }
   getProducts(): void {
      this.productsService.getProducts()

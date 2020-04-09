@@ -82,4 +82,9 @@ h4 {
     min-width: 100%;
   }
 }
+app-logged-status{
+  float: right;
+  font-size: 2em;
+  color: black;
+}
 

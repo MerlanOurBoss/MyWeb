@@ -1,0 +1,44 @@
+<app-logged-status></app-logged-status>
+<div class="but">
+  <a routerLink="/forall">Home</a>
+</div>
+<div *ngIf="user" id="nam" >
+  <h1> {{user.login}} : {{user.id}}</h1>
+</div>
+
+
+
+  <div>
+    <h2> Your Liked thing's :  {{user.liked}}</h2>
+    <label> IDproduct:
+      <input #idProduct />
+    </label>
+    <button (click)="delete(idProduct.valueAsNumber); idProduct.valueAsNumber">
+      delete
+    </button>
+  </div>
+
+<div id="yu">
+  <h2> Your orders : {{user.myOrders}}</h2>
+</div>
+
+<div>
+  <h2> If you wanna change the login</h2>
+<label>
+  <input [(ngModel)]="user.login" placeholder="Login"/>
+</label>
+</div>
+
+<div>
+  <h2> If you wanna change the password</h2>
+  <label>
+    <input type="password" [(ngModel)]="user.password" placeholder="password"/>
+  </label>
+</div>
+
+
+<div >
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
+

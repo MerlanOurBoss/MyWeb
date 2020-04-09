@@ -13,8 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService} from './product.service';
 import { InMemoryDataService} from './in-memory-data.service';
 import {FormsModule} from '@angular/forms';
-import { BottombarComponent } from './bottombar/bottombar.component';
-import { DownbarComponent } from './downbar/downbar.component';
+import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation.component';
+import { AdviceMenuComponent } from './advice-menu/advice-menu.component';
+import { LoggedStatusComponent } from './logged-status/logged-status.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule(
   {
@@ -35,8 +37,10 @@ import { DownbarComponent } from './downbar/downbar.component';
       ViewProductComponent,
       ViewProductsComponent,
       SignComponent,
-      BottombarComponent,
-      DownbarComponent
+      BottomNavigationComponent,
+      AdviceMenuComponent,
+      LoggedStatusComponent,
+      ProfileComponent
     ],
   providers: [],
   bootstrap: [AppComponent]

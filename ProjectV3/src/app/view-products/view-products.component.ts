@@ -27,10 +27,5 @@ export class ViewProductsComponent implements OnInit {
         this.products = products.
         // filter(product => product.for === prevCat).
         filter(product => product.category === catId));
-    console.log(this.products.filter(product => product.for === prevCat).
-    filter(product => product.category === catId) + 'items');
   }
-
-
-
 }

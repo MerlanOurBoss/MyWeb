@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {Category} from './Category';
 import {ProductService} from './product.service';
 import {ActivatedRoute} from '@angular/router';
+import {User} from './User';
+import {UserServiceService} from './user-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +16,7 @@ export class AppComponent {
   constructor(
     private productsService: ProductService,
     private route: ActivatedRoute,
+    private userServiceService: UserServiceService
     ) { }
   mouseEnter(id) {
     this.mouseLeave();

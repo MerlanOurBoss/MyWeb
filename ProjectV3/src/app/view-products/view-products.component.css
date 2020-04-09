@@ -1,4 +1,5 @@
 .grid-pad{
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -75,4 +76,9 @@ h4 {
   .module {
     min-width: 100%;
   }
+}
+app-logged-status{
+  float: right;
+  font-size: 2em;
+  color: black;
 }

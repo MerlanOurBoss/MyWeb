@@ -64,3 +64,6 @@ nav{
 #categories_dropdown li{
   margin-bottom: 10px;
 }
+.active{
+  background-color: rgba(0, 0, 0, 0.1);
+}

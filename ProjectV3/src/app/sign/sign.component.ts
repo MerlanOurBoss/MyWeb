@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../product.service';
 import { User} from '../User';
 import {UserServiceService} from '../user-service.service';
 import {Category} from '../Category';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign',
@@ -16,12 +17,19 @@ export class SignComponent implements OnInit {
   action = '';
   users: User[];
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
     this.getUsers();
+    if (this.userService.getStatus()) {
+      this.router.navigate(['/forall']);
+    } else {
+      this.getAction();
+    }
   }
   getAction() {
     this.action = this.route.snapshot.params.action;
@@ -45,18 +53,22 @@ export class SignComponent implements OnInit {
     const login = (document.getElementById('userName') as HTMLInputElement).value;
     const pass = (document.getElementById('password') as HTMLInputElement).value;
     const logged = false;
-    // this.user = this.userService.checkUser(login, pass);
+    console.log('logIn');
+    if (this.userService.checkUser(login, pass)) {
+      this.router.navigate(['/forall']);
+    }
   }
   registration() {
     const login = (document.getElementById('userName1') as HTMLInputElement).value;
     const pass = (document.getElementById('password1') as HTMLInputElement).value;
     console.log(login + ' ' + pass);
+    // this.userService.addUser(new User(login, pass));
+    this.userService.addUser({login, pass} ).subscribe(user => this.users.push(user));
+    // console.log(this.userService.getUser(7));
   }
-  private getUsers() {
-    this.getAction();
+  getUsers() {
     console.log('get');
-    this.userService.getUsers().subscribe(users => this.users === users);
-    console.log('users');
-    console.log(this.users.length);
+    this.userService.getUsers().
+    subscribe(users => this.users = users);
   }
 }

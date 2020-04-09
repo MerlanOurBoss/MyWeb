@@ -1,4 +1,6 @@
 {
-  "heroesUrl": "api/products",
+  "productsUrl": "api/products",
+  "usersUrl": "api/users",
+  "categoriesUrl" : "api/categories",
   "textfile": "assets/textfile.txt"
 }

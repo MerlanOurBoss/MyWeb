@@ -2,6 +2,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Product} from './Product';
 import { Injectable } from '@angular/core';
 import {Category} from './Category';
+import {User} from './User';
 
 @Injectable({
   providedIn: 'root',
@@ -1503,13 +1504,14 @@ export class InMemoryDataService implements InMemoryDbService {
         for: 2
       },
     ];
-    const users = [
-      {id: 1, userName: 'Bekbolat', password: '123456789' , liked: [1, 2, 3], myOrders: [1]},
-      {id: 2, userName: 'Merlan', password: '111' , liked: [5, 6, 7, 10], myOrders: [2]},
-      {id: 3, userName: 'Alik', password: '111' , liked: [11, 2], myOrders: [3]},
-      {id: 4, userName: 'Admin', password: 'asdasd' , liked: [12, 28, 15], myOrders: [4]},
-      {id: 5, userName: 'Test', password: '111' , liked: [11, 1, 2, 3, 31], myOrders: [5]},
-    ]
+    const users: User[] = [
+      { id: 1, login: 'Bekbolat', password: '123456789' , liked: [1, 2, 3], myOrders: [1] },
+      { id: 2, login: 'Merlan', password: '111' , liked: [5, 6, 7, 10], myOrders: [2] },
+      { id: 3, login: 'Alik', password: '111' , liked: [11, 2], myOrders: [3] },
+      { id: 4, login: 'Admin', password: 'asdasd' , liked: [12, 28, 15], myOrders: [4] },
+      { id: 5, login: 'Test', password: '111' , liked: [11, 1, 2, 3, 31], myOrders: [5] },
+      { id: 6, login: 'asd', password: '111', liked: [], myOrders: [] }
+    ];
     return {products, categories, users};
   }
 
