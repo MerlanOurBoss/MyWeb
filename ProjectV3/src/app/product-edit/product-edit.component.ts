@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Product} from '../Product';
 import { ProductService} from '../product.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Location } from '@angular/common';
+import {UserServiceService} from "../user-service.service";
 
 @Component({
   selector: 'app-product-edit',
@@ -14,11 +15,17 @@ export class ProductEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductService,
-    private location: Location
+    private location: Location,
+    private userServiceService: UserServiceService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.getProduct();
+    if (!this.userServiceService.getStatus()) {
+      this.router.navigate(['/sign/in']);
+    } else {
+      this.getProduct();
+    }
   }
 
   getProduct(): void {
@@ -33,5 +40,8 @@ export class ProductEditComponent implements OnInit {
 
   save(): void {
     this.productsService.updateProduct(this.product).subscribe(() => this.goBack());
+  }
+  edit(element: string) {
+    (document.getElementById(element) as HTMLInputElement).disabled = false;
   }
 }

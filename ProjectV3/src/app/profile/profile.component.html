@@ -1,44 +1,45 @@
 <app-logged-status></app-logged-status>
-<div class="but">
-  <a routerLink="/forall">Home</a>
+
+<div id="title">
+  <h2> Profile : {{user.login}} </h2>
+
 </div>
-<div *ngIf="user" id="nam" >
-  <h1> {{user.login}} : {{user.id}}</h1>
-</div>
+<div class="main">
 
-
-
-  <div>
-    <h2> Your Liked thing's :  {{user.liked}}</h2>
-    <label> IDproduct:
-      <input #idProduct />
-    </label>
-    <button (click)="delete(idProduct.valueAsNumber); idProduct.valueAsNumber">
-      delete
-    </button>
+  <div class="editBox">
+    <h2> If you wanna change the login</h2>
+    <input class="inputModel" [(ngModel)]="user.login" placeholder="Login"/>
+    <button class="button" (click)="save()">Save</button>
+    <h2> If you wanna change the password</h2>
+    <input class="inputModel" type="password" [(ngModel)]="user.password" placeholder="password"/>
+    <button class="button" (click)="save()">Save</button>
   </div>
 
-<div id="yu">
-  <h2> Your orders : {{user.myOrders}}</h2>
+  <h2> Your Liked thing's :  </h2>
+
+  <button class="button" id="likedBtn" (click)="liked()">{{likedBtn}}</button>
+  <div class="likedList" *ngIf="user && showLiked">
+    <div class="listItem" *ngFor="let prod of likedProducts">
+      <p>Product key: {{prod.id}}</p>
+      <h2>{{prod.name}}</h2>
+      <img src="{{prod.img}}" alt="prodImage">
+      <h3>{{prod.price}}</h3>
+      <button class="button" (click)="delete(prod.id)">Remove from Favourites</button>
+    </div>
+  </div>
+
+  <button class="button" id="ordersBtn" (click)="ordered()">{{ordersBtn}}</button>
+  <h2> Your Previous ordered thing's :  </h2>
+  <div class="likedList" *ngIf="user && showOrders">
+    <div class="listItem" *ngFor="let prod of orderedProducts">
+      <p>Product key: {{prod.id}}</p>
+      <h2>{{prod.name}}</h2>
+      <img src="{{prod.img}}" alt="prodImage">
+      <h3>{{prod.price}}</h3>
+    </div>
+  </div>
+
+  <button class="button" (click)="goBack()">Go Back</button>
+  <button class="button" (click)="save()">Save</button>
+
 </div>
-
-<div>
-  <h2> If you wanna change the login</h2>
-<label>
-  <input [(ngModel)]="user.login" placeholder="Login"/>
-</label>
-</div>
-
-<div>
-  <h2> If you wanna change the password</h2>
-  <label>
-    <input type="password" [(ngModel)]="user.password" placeholder="password"/>
-  </label>
-</div>
-
-
-<div >
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
-</div>
-

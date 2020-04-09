@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { Product } from '../Product';
 import { ProductService} from '../product.service';
+import {UserServiceService} from "../user-service.service";
 
 @Component({
   selector: 'app-view-product',
@@ -15,7 +16,8 @@ export class ViewProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductService,
-    private location: Location
+    private location: Location,
+    private userServiceService: UserServiceService
   ) { }
 
   ngOnInit(): void {
@@ -30,16 +32,18 @@ export class ViewProductComponent implements OnInit {
 
   }
   addToFav() {
-
+    if (this.userServiceService.addToFav(this.product.id)) {
+      window.alert('Added to Favourites ' + this.product.name);
+    }
   }
   addComment() {
-    console.log(this.product.comments.length);
     const user = (document.getElementById('userName') as HTMLInputElement).value;
     const body = (document.getElementById('bodyCom') as HTMLTextAreaElement).value;
     this.product.comments.push({userName: user, body});
-    console.log(this.product.comments.length);
     this.productsService.updateProduct(this.product).subscribe(
       product => this.product === product
     );
+    (document.getElementById('bodyCom') as HTMLTextAreaElement).value = '';
+    (document.getElementById('userName') as HTMLInputElement).value = '';
   }
 }

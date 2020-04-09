@@ -1,9 +1,9 @@
-<a routerLink="/forall"><h1 id="titlePull" (mouseenter)="mouseLeave()"> Pull && Bear</h1></a>
+<a routerLink="/forall" ><h1 id="titlePull" > Pull && Bear</h1></a>
 <nav>
   <ul id="nav_list" >
-    <li><a routerLink="/forall" (mouseenter)="mouseLeave()" routerLinkActive="active">For All</a>|</li>
-    <li><a routerLink="/forman" (mouseenter)="mouseEnter(1)"  routerLinkActive="active">Man</a>|</li>
-    <li><a routerLink="/forwoman" (mouseenter)="mouseEnter(2)"  routerLinkActive="active">Woman</a></li>
+    <li (mouseenter)="mouseLeave()" ><a routerLink="/forall" routerLinkActive="active"> For All </a>|</li>
+    <li (mouseenter)="mouseEnter(1)" ><a routerLink="/forman" routerLinkActive="active"> Man </a>|</li>
+    <li (mouseenter)="mouseEnter(2)"><a routerLink="/forwoman" routerLinkActive="active"> Woman </a></li>
   </ul>
   <ul id="nav_list_sign" (mouseenter)="mouseLeave()">
     <li><a routerLink="/sign/in" routerLinkActive="active">Sign in</a></li>
@@ -19,6 +19,6 @@
   </ul>
 </div>
 
-<router-outlet></router-outlet>
+<router-outlet (mouseenter)="mouseLeave()"></router-outlet>
 
 <app-bottom-navigation></app-bottom-navigation>

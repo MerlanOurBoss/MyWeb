@@ -9,7 +9,7 @@ import {ViewProductsComponent} from './view-products/view-products.component';
 import {ViewProductComponent} from './view-product/view-product.component';
 import {SignComponent} from './sign/sign.component';
 import {ProfileComponent} from './profile/profile.component';
-import {AdminComponent} from './admin/admin.component';
+import {AdminPageComponent} from './admin-page/admin-page.component';
 import {ProductEditComponent} from './product-edit/product-edit.component';
 
 const routes: Routes = [
@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'category/:catId/products' , component: ViewProductsComponent},
   { path: 'sign/:action', component: SignComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'admin', component: AdminComponent},
-  {path: 'productEdit/:id', component: ProductEditComponent}
+  {path: 'admin', component: AdminPageComponent},
+  {path: 'admin/productEdit/:id', component: ProductEditComponent}
 ];
 
 @NgModule({

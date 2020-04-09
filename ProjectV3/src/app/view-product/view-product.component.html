@@ -23,8 +23,8 @@
       <p *ngIf="!product.available">Available: Not Available</p>
       <p>Orders: {{product.orderCount}}</p>
       <div id="button_div">
-        <BUTTON id="add_btn" (click)="addToFav()">Add</BUTTON>
-        <BUTTON id="buy_btn" (click)="buyProduct()">Buy</BUTTON>
+        <BUTTON class="button" (click)="addToFav()">Add</BUTTON>
+        <BUTTON class="button" (click)="buyProduct()">Buy</BUTTON>
       </div>
     </div>
 
