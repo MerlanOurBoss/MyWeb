@@ -5,6 +5,7 @@ import { User} from '../User';
 import {UserServiceService} from '../user-service.service';
 import {Category} from '../Category';
 import {tap} from 'rxjs/operators';
+import {AuthorizationService} from '../authorization.service';
 
 @Component({
   selector: 'app-sign',
@@ -19,11 +20,12 @@ export class SignComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserServiceService,
-    private productService: ProductService
+    private productService: ProductService,
+    private authorizationService: AuthorizationService
   ) { }
 
   ngOnInit(): void {
-    if (this.userService.getStatus()) {
+    if (this.authorizationService.loggedIn()) {
       this.router.navigate(['/forall']);
     } else {
       this.getAction();
@@ -50,17 +52,37 @@ export class SignComponent implements OnInit {
   logIn() {
     const login = (document.getElementById('userName') as HTMLInputElement).value;
     const pass = (document.getElementById('password') as HTMLInputElement).value;
-    const logged = false;
-    console.log('logIn');
-    if (this.userService.checkUser(login, pass)) {
-      this.router.navigate(['/forall']);
-    }
+    const user = {
+      username: login,
+      password: pass
+    };
+    this.authorizationService.loginUser(user)
+      .subscribe(
+        response => {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('id', response.id);
+          localStorage.setItem('username', response.username);
+          this.router.navigate(['/forall']);
+        },
+        error => console.log(error)
+      );
   }
   registration() {
     const login = (document.getElementById('userName1') as HTMLInputElement).value;
     const pass = (document.getElementById('password1') as HTMLInputElement).value;
-    console.log(login + ' ' + pass);
-    this.userService.addUser(new User(login, pass));
+    const user = {
+      username: login,
+      password: pass
+    };
+    this.authorizationService.registerUser(user)
+      .subscribe(
+        response => {
+          alert('Sign in to Your Account');
+          this.router.navigate(['/sign/in']);
+          console.log(response);
+        },
+        error => console.log(error)
+      );
     // this.userService.addUser({login, pass} ).subscribe(user => this.users.push(user));
     // console.log(this.userService.getUser(7));
   }

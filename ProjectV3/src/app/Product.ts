@@ -11,8 +11,7 @@ export interface Product {
   description: string;
   rating: number;
   category: number;
-  comments: Comment[];
   orderCount: number;
   available: boolean;
-  for: number;
+  gender: number;
 }

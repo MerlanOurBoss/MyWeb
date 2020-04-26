@@ -1,17 +1,17 @@
 <app-logged-status></app-logged-status>
 
 <div id="title">
-  <h2> Profile : {{user.login}} </h2>
+  <h2> Profile : {{user}} </h2>
 
 </div>
 <div class="main">
 
   <div class="editBox">
     <h2> If you wanna change the login</h2>
-    <input class="inputModel" [(ngModel)]="user.login" placeholder="Login"/>
+    <input class="inputModel" [(ngModel)]="this.instance.login" placeholder="Login"/>
     <button class="button" (click)="save()">Save</button>
     <h2> If you wanna change the password</h2>
-    <input class="inputModel" type="password" [(ngModel)]="user.password" placeholder="password"/>
+    <input class="inputModel" type="password" [(ngModel)]="this.instance.password" placeholder="password"/>
     <button class="button" (click)="save()">Save</button>
   </div>
 

@@ -23,11 +23,11 @@ export class AppComponent {
     if (id === 1) {
       this.prevCatId = 1;
       this.productsService.getCategories()
-        .subscribe(categories => this.categories = categories.filter(category => category.for === 1));
+        .subscribe(categories => this.categories = categories.filter(category => category.gender === 1));
     } else if (id === 2) {
       this.prevCatId = 2;
       this.productsService.getCategories()
-        .subscribe(categories => this.categories = categories.filter(category => category.for === 2));
+        .subscribe(categories => this.categories = categories.filter(category => category.gender === 2));
     }
     document.querySelector('div').style.cssText = 'background-color: rgba(0,0,0,0.5);';
     document.getElementById('nav_list').style.cssText = 'background-color: rgba(0,0,0,0.5);';

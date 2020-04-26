@@ -17,6 +17,6 @@ export class ForManCategoriesComponent implements OnInit {
   }
   getProduct(): void {
     this.productsService.getProducts()
-      .subscribe(products => this.products = products.filter(product => product.for === 1));
+      .subscribe(products => this.products = products.filter(product => product.gender === 1));
   }
 }

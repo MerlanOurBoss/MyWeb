@@ -4,7 +4,8 @@ import { Location } from '@angular/common';
 
 import { Product } from '../Product';
 import { ProductService} from '../product.service';
-import {UserServiceService} from "../user-service.service";
+import {UserServiceService} from '../user-service.service';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-view-product',
@@ -13,6 +14,8 @@ import {UserServiceService} from "../user-service.service";
 })
 export class ViewProductComponent implements OnInit {
   @Input() product: Product;
+  comments: Comment[];
+  raw;
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductService,
@@ -27,23 +30,29 @@ export class ViewProductComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productsService.getProduct(id)
       .subscribe(product => this.product = product);
+    this.productsService.getComments(id)
+      .subscribe(comments => this.comments = comments);
   }
   buyProduct() {
-
+    this.productsService.addOrderProduct(this.product.id)
+      .subscribe(anyth => this.raw = anyth);
+    alert('Added to Orders ' + this.product.name);
   }
   addToFav() {
-    if (this.userServiceService.addToFav(this.product.id)) {
-      window.alert('Added to Favourites ' + this.product.name);
-    }
+    this.productsService.addFavProduct(this.product.id)
+      .subscribe(anyth => this.raw = anyth);
+    alert('Added to Favourites ' + this.product.name);
   }
   addComment() {
-    const user = (document.getElementById('userName') as HTMLInputElement).value;
     const body = (document.getElementById('bodyCom') as HTMLTextAreaElement).value;
-    this.product.comments.push({userName: user, body});
-    this.productsService.updateProduct(this.product).subscribe(
-      product => this.product === product
+    this.productsService.addComment(this.product.id, body).subscribe(
+      comments => this.comments = comments
     );
+    // this.product.comments.push({userName: user, body});
+    // this.productsService.updateProduct(this.product).subscribe(
+    //   product => this.product === product
+    // );
     (document.getElementById('bodyCom') as HTMLTextAreaElement).value = '';
-    (document.getElementById('userName') as HTMLInputElement).value = '';
+    // (document.getElementById('userName') as HTMLInputElement).value = '';
   }
 }

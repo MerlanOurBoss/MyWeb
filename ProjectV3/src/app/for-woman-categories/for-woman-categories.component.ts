@@ -18,6 +18,6 @@ export class ForWomanCategoriesComponent implements OnInit {
 
   getProduct(): void {
     this.productsService.getProducts()
-      .subscribe(products => this.products = products.filter(product => product.for === 2));
+      .subscribe(products => this.products = products.filter(product => product.gender === 2));
   }
 }

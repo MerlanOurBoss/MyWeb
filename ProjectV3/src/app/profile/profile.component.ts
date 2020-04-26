@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import {ProductService} from '../product.service';
 import {Product} from '../Product';
 import {Observable} from 'rxjs';
+import {AuthorizationService} from '../authorization.service';
 
 
 @Component({
@@ -16,23 +17,26 @@ import {Observable} from 'rxjs';
 export class ProfileComponent implements OnInit {
   likedBtn = 'Hide Liked Things';
   ordersBtn = 'Hide My Orders';
-  user: User;
-  likedProducts: Product[] = [];
-  orderedProducts: Product[] = [];
+  user;
+  instance: User;
+  password;
+  likedProducts;
+  orderedProducts;
   showLiked = true; showOrders = true;
   constructor(
     private router: Router,
     private location: Location,
     private route: ActivatedRoute,
     private userService: UserServiceService,
-    private productService: ProductService
+    private productService: ProductService,
+    private authorizationService: AuthorizationService
   ) { }
 
   ngOnInit(): void {
-    if (!this.userService.getStatus()) {
+    if (!this.authorizationService.loggedIn()) {
       this.router.navigate(['/forall']);
     } else {
-      this.userService.getLoggedStatus().subscribe(user => this.user = user);
+      this.user = localStorage.getItem('username');
       this.getProducts();
     }
   }
@@ -40,24 +44,25 @@ export class ProfileComponent implements OnInit {
     this.location.back();
   }
   save(): void {
-    this.userService.updateUser(this.user).subscribe(() => this.goBack());
+    this.authorizationService.changeUserData(this.instance)
+      .subscribe(() => this.goBack());
   }
   delete(prodId: number) {
     console.log(prodId);
-    this.userService.removeFav(prodId);
-    this.getProducts();
+    this.productService.deleteFromFav(prodId).subscribe(
+      products => this.likedProducts = products
+    );
   }
   getProducts() {
-    this.likedProducts = [];
-    this.orderedProducts = [];
-    for (const prod of this.user.liked) {
-      this.productService.getProduct(prod)
-        .subscribe(product => this.likedProducts.push(product));
-    }
-    for (const prod of this.user.myOrders){
-      this.productService.getProduct(prod)
-        .subscribe(product => this.orderedProducts.push(product));
-    }
+    this.authorizationService.getUserData().subscribe(
+      user1 => this.instance = user1
+    );
+    this.authorizationService.getUserLikedProducts().subscribe(
+      products => this.likedProducts = products
+    );
+    this.authorizationService.getUserOrderProducts().subscribe(
+      products => this.orderedProducts = products
+    );
   }
   liked() {
     if (this.showLiked === false) {

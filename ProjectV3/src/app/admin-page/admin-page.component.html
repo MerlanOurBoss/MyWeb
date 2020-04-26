@@ -1,9 +1,10 @@
 <app-logged-status></app-logged-status>
 <div class="main">
   <h2>Search Product By Name</h2>
-  <input class="srcItem"  #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Product Name" />
+<!--  <input class="srcItem"  #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Product Name" />-->
+  <input type="text"  name="search" [(ngModel)]="term" placeholder="Product Name">
   <ul class="search-result" >
-    <li *ngFor="let pro of products$ | async" >
+    <li *ngFor="let pro of products$ | filter:term" >
       <a routerLink="productEdit/{{pro.id}}">
         {{pro.name}}
       </a>

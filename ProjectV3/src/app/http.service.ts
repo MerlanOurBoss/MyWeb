@@ -7,6 +7,6 @@ export class HttpService {
   configUrl = 'assets/config.json';
   constructor(private http: HttpClient) { }
   getConfig() {
-    this.http.get(this.configUrl);
+    // this.http.get(this.configUrl);
   }
 }

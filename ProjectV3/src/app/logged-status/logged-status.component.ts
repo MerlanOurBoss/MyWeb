@@ -3,6 +3,7 @@ import {User} from '../User';
 import {UserServiceService} from '../user-service.service';
 import {Router} from '@angular/router';
 import { Location } from '@angular/common';
+import {AuthorizationService} from '../authorization.service';
 
 @Component({
   selector: 'app-logged-status',
@@ -10,22 +11,26 @@ import { Location } from '@angular/common';
   styleUrls: ['./logged-status.component.css']
 })
 export class LoggedStatusComponent implements OnInit {
-  activeUser: User;
+  activeUser;
   admin: boolean;
   constructor(
     private router: Router,
     private userServiceService: UserServiceService,
     private location: Location,
+    private authorizationService: AuthorizationService
   ) { }
 
   ngOnInit(): void {
-    this.userServiceService.getLoggedStatus().subscribe(user => this.activeUser = user);
-    if (this.activeUser.login === 'Admin') {
+    if (this.authorizationService.loggedIn()) {
+      this.activeUser = localStorage.getItem('username');
+      console.log(this.activeUser);
+    }
+    if (this.activeUser === 'admin') {
       this.admin = true;
     }
   }
   logOut() {
-    this.userServiceService.logOut();
+    this.authorizationService.logoutUser();
     this.location.back();
   }
 }
